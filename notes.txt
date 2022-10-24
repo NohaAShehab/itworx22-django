@@ -1,0 +1,22 @@
+1- url
+
+    http::127.0.0.1:9000/home
+
+    1- define your url
+
+    2- define the associated view
+
+    -=================================================
+
+
+
+task:
+    1- install django
+    2- start project itworx
+    3- create application library
+    4- application consists of 4 page
+        homepage (any content)
+        about us
+        contactus
+        books_index ( list all books in cards bootstrap )
+        dict book---> id , title , description, image )cd
