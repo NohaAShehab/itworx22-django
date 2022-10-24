@@ -1,0 +1,1 @@
+alert("----- Called from static js file ----------")

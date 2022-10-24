@@ -1,0 +1,21 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Amazon Home page {% endblock%}
+
+
+
+{% block main %}
+    <h1> All products</h1>
+
+    {{products}}
+    <ol>
+    {% for p in products %}
+        <li> {{p.name}} {{p.img}}</li>
+    {% endfor %}
+    </ol>
+
+{% endblock %}
+
+
+
+

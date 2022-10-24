@@ -1,0 +1,23 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'amazon/css/style.css'%}">
+{% endblock %}
+
+{% block main %}
+    <h1> ---- Welcome to amazon home page ----</h1>
+
+    <img src="{% static 'amazon/images/img1.png'%}"  width="400" height="400">
+{% endblock %}
+
+{% block maincontent %}
+    <h1> ---- Welcome to amazon home page ----</h1>
+    <script src="{% static 'amazon/js/script.js'%}"></script>
+{% endblock %}
+
+
+
+{% block title %} Amazon Home page {% endblock%}
+
