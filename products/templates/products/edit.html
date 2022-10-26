@@ -1,0 +1,50 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+
+{% block main %}
+<h1> Edit Product </h1>
+<img src="{{product.get_image_url}}"  width="200" height="200">
+    <form  action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label  class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" value="{{product.name}}" >
+      </div>
+        <div class="mb-3">
+        <label  class="form-label">Description</label>
+        <input type="text" name="description"  value="{{product.description}}" class="form-control" >
+      </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Image</label>
+        <input type="file" name="image" class="form-control" >
+      </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Value</label>
+        <input type="number" name="value"  value="{{product.value}}" class="form-control" >
+      </div>
+
+    <div class="mb-3">
+        <label  class="form-label">No of items</label>
+        <input type="number" name="no_of_items"  value="{{product.no_of_items}}" class="form-control" >
+      </div>
+
+      <div class="mb-3 form-check">
+            {% if product.in_stock %}
+            <input type="checkbox" class="form-check-input" name="in_stock" checked >
+            {% else %}
+            <input type="checkbox" class="form-check-input" name="in_stock" >
+            {% endif %}
+
+
+
+        <label class="form-check-label"  for="exampleCheck1">In stock</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}

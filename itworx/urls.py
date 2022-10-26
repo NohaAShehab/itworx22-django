@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 """itworx URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -24,7 +26,8 @@ urlpatterns = [
     # path('home/profile', profile_view),
     # path('home/<name>', user_home_view),
     path('amazon/', include("amazon.urls")),
-    path('employees/', include("employees.urls"))
+    path('employees/', include("employees.urls")),
+    path('products/', include("products.urls"))
 
 
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

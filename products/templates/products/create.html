@@ -1,0 +1,47 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+
+{% block main %}
+<h1> Add Product </h1>
+    <form  action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label  class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" >
+      </div>
+        <div class="mb-3">
+        <label  class="form-label">Description</label>
+        <input type="text" name="description" class="form-control" >
+      </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Img</label>
+        <input type="text" name="img" class="form-control" >
+      </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Image</label>
+        <input type="file" name="image" class="form-control" >
+      </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Value</label>
+        <input type="number" name="value" class="form-control" >
+      </div>
+
+    <div class="mb-3">
+        <label  class="form-label">No of items</label>
+        <input type="number" name="no_of_items" class="form-control" >
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="in_stock"  id="exampleCheck1">
+        <label class="form-check-label"  for="exampleCheck1">In stock</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}

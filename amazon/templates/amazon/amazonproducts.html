@@ -6,13 +6,23 @@
 
 {% block main %}
     <h1> All products</h1>
-
-    {{products}}
-    <ol>
+    <div class="row" >
     {% for p in products %}
-        <li> {{p.name}} {{p.img}}</li>
+        <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="{% static 'amazon/images/'%}{{p.img}}"
+               width="200" height="200"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{p.name}}</p>
+          </div>
+             <a href="{% url 'amazon.products.details' p.id %}" class="btn btn-primary">View Details </a>
+        </div>
+
+    </div>
     {% endfor %}
-    </ol>
+    </div>
+
 
 {% endblock %}
 

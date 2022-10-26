@@ -1,0 +1,49 @@
+
+
+connect to the database
+-------------------------------------
+1- install postgres connector ---> package
+
+    pip install psycopg2-binary
+
+
+2- add postgres configuration to the settings.py
+'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+
+
+
+
+
+
+
+------------------------------------------------------
+-----> ORM ---> object relational mapper
+
+===? consider each table in the database  to be a class
+
+---> each record in a table is considered to be an object
+
+---> models in your application ---> classes ---> represent the table
+
+product ---> name, id , img , price , description, in_stock , no_of_items
+
+
+---------
+use the django shell
+
+
+pip install ipython
+python manage.py shell
+
+
+Product.objects.all()
+select * from products_product;
+
+select * from products_product where price = 200;

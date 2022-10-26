@@ -25,14 +25,26 @@ def amazon_home_view(request):
 
 
 def contactus_view(request):
-    return  render(request, "amazon/contactus.html")
+    return render(request, "amazon/contactus.html")
 
+
+allproducts = [
+    {"id": 1, "name": "book", "img": 'img1.png', "description": "book1 description"},
+    {"id": 2, "name": "flower", 'img': 'img2.png', "description": "book2 description"},
+]
 
 
 def amazon_products_view(request):
-    allproducts  = [
-        {"name":"book", "img":'img1.png'},
-        {"name":"flower", 'img':'img1.png'}
-    ]
+    return render(request, "amazon/amazonproducts.html", context={"products": allproducts})
 
-    return render(request, "amazon/amazonproducts.html",context={"products":allproducts} )
+
+def product_detail_view(request, product_id):
+    # get the product related to the given Id
+    print(type(product_id))
+    for product in allproducts:
+        if product["id"] == product_id:
+            selected_product = product
+            # return HttpResponse(selected_product["name"])
+            return render(request, "amazon/showproduct.html", context={"product":selected_product})
+    else:
+        return HttpResponse("product not found ")
