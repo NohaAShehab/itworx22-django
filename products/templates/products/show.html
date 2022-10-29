@@ -16,7 +16,9 @@
               <p class="card-text">Price {{product.price}}</p>
               <p class="card-text">Created at: {{product.created_at}}</p>
               <p class="card-text">Updated at {{product.updated_at }}</p>
+              <p class="card-text"> Category object : <a href="{{product.category.get_show_url}}">{{product.category}} </a> </p>
           </div>
+
 <!--        <a href="{% url 'product.delete' product.id %}" class="btn btn-danger"> Delete </a>-->
         <a href="{{product.get_edit_url}}" class="btn btn-warning"> Edit </a>
 
@@ -25,6 +27,16 @@
          <a href="{% url 'products.index'%}" class="btn btn-info"> Back to all products </a>
     </div>
 
+    <div>
+        <h1> See also products from this category </h1>
 
+        {{product.category.category_products.all}}
+        {% for p in product.category.category_products.all %}
+            {% if p.id != product.id %}
+                <li> <a href="{{p.get_show_url}}"> {{p.name}} </a></li>
+            {% endif %}
+        {% endfor %}
+
+    </div>
 
 {% endblock %}

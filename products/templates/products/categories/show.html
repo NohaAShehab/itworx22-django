@@ -1,0 +1,27 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Product details {% endblock%}
+
+
+
+{% block main %}
+    <h1> Category details </h1>
+    <div class="card mx-auto" style="width: 18rem;">
+          <div class="card-body">
+            <h1 class="card-text">{{category.cat_name}}</h1>
+          <p class="card-text">Description: {{category.description}}</p>
+              <p class="card-text">Created at: {{category.created_at}}</p>
+              <p class="card-text">Updated at {{category.updated_at }}</p>
+          </div>
+         <a href="{% url 'product.categories.index'%}" class="btn btn-info"> Back to all Categorsies  </a>
+    </div>
+    {{category.category_products.all}}
+    <h1> Products in this category </h1>
+    <o>
+        {% for p in category.category_products.all %}
+        <li> <a href="{{p.get_show_url}}">{{p.name}} </a></li>
+
+        {% endfor %}
+    </o>
+
+{% endblock %}

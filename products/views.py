@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect , reverse, get_object_or_404
 from django.http import HttpResponse
-from products.models import Product
+from products.models import Product, Category
 
 
 # Create your views here.
@@ -23,6 +23,7 @@ def product_details_view(request, id):
 
 
 def create_product_view(request):
+    categories = Category.get_all_objects()
     if request.POST:
         p = Product()
         print(request.POST)
@@ -47,22 +48,14 @@ def create_product_view(request):
             print(image, type(image), image.name)
             p.image = image
 
+        print(request.POST["category_id"])
+        p.category = Category.get_object(request.POST["category_id"])
         p.save()
-        # print(p.id)
-        # redirected_url = reverse('products.index')
-        # redirected_url = reverse("products.show", args=[p.id])
-        # redirected_url  +="?name=shehab"
-        # return redirect(redirected_url)
-        # return HttpResponse(f"POST request received , New object added : {p.id}")
-        ## 'products.index' ==? convert to http::127.0.0.1/products/index
-        # url =  reverse("products.show", args=[p.id])
-        # return redirect(url)
-        # return redirect("products.show",p.id)
         return redirect(p.get_show_url())
 
 
 
-    return render(request, "products/create.html")
+    return render(request, "products/create.html", context={"categories":categories})
 
 
 
@@ -102,7 +95,12 @@ def edit_product_view(request, id):
 
 
 
+def get_all_categories_view(request):
+    categories = Category.get_all_objects()
+    return render(request, "products/categories/index.html", context={"categories":categories})
 
 
+def get_category_view(request, id):
+    category = Category.get_object(id)
 
-
+    return render(request,"products/categories/show.html", context={"category":category})

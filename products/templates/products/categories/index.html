@@ -1,0 +1,24 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Categories  {% endblock %}
+
+{% block main %}
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+        <th scope="col">Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cat in categories %}
+        <tr>
+            <td> {{cat.id}}</td> <td> {{cat.cat_name}}</td>  <td> {{cat.description}}</td>
+            <td> <a href="{{cat.get_show_url}}" class="btn btn-primary"> Show </a></td>
+        </tr>
+    {%endfor%}
+  </tbody>
+    </table>
+{%endblock%}

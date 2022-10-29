@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'employees.apps.EmployeesConfig',
     'amazon.apps.AmazonConfig',
-    'products.apps.ProductsConfig'
+    'products.apps.ProductsConfig',
+    'django_cleanup.apps.CleanupConfig',
+    'cars.apps.CarsConfig'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'itworx.urls'

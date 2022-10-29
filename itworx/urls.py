@@ -27,7 +27,8 @@ urlpatterns = [
     # path('home/<name>', user_home_view),
     path('amazon/', include("amazon.urls")),
     path('employees/', include("employees.urls")),
-    path('products/', include("products.urls"))
+    path('products/', include("products.urls")),
+    path('cars/', include("cars.urls") )
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

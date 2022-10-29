@@ -41,6 +41,15 @@
         <input type="checkbox" class="form-check-input" name="in_stock"  id="exampleCheck1">
         <label class="form-check-label"  for="exampleCheck1">In stock</label>
       </div>
+        <div class="mb-3">
+             <label  class="form-label">Category</label>
+            <select class="form-select" aria-label="Default select example" name="category_id">
+                <option selected disabled>Open this select menu</option>
+                {% for cat in categories %}
+                  <option value="{{cat.id}}">{{cat.cat_name}}</option>
+                {% endfor %}
+            </select>
+            </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
