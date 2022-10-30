@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'amazon.apps.AmazonConfig',
     'products.apps.ProductsConfig',
     'django_cleanup.apps.CleanupConfig',
-    'cars.apps.CarsConfig'
+    'cars.apps.CarsConfig',
+    'library.apps.LibraryConfig',
+    'betterforms'
 ]
 
 MIDDLEWARE = [

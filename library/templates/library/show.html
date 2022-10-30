@@ -1,0 +1,27 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Product details {% endblock%}
+
+
+
+{% block main %}
+    <h1> Book Details details </h1>
+  {{book}}
+
+  <div class="card mx-auto" style="width: 18rem;">
+          <img src="{{book.get_image_url}}"
+               width="200" height="200"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{book.name}}</p>
+          <p class="card-text">Description: {{book.description}}</p>
+              <p class="card-text">No_of_pages {{book.no_of_pages}}</p>
+              <p class="card-text">Created at: {{book.created_at}}</p>
+              <p class="card-text">Updated at {{book.updated_at }}</p>
+              <p class="card-text"> Author object : {{book.author}}</p>
+          </div>
+    <div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'amazon/base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+
+{% block main %}
+<h1> All Books </h1>
+    {{object_list}}
+    {{books}}
+
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+        <th scope="col">Show</th>
+    <th scope="col">Edit</th>
+<th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+<!--        {{object_list}}-->
+<!--        {{books}}-->
+     {% for book in object_list %}
+        <tr>
+            <td> {{book.id}}</td> <td> {{book.name}}</td>
+            <td> <a href="{{book.get_show_url}}" class="btn btn-primary"> Show </a></td>
+
+            <td> <a href="{{book.get_edit_url}}" class="btn btn-warning"> Edit </a></td>
+            <td> <a href="{{book.get_delete_url}}" class="btn btn-danger"> Delete </a></td>
+        </tr>
+    {%endfor%}
+  </tbody>
+    </table>
+    <script src="{% static 'cars/js/script.js' %}"></script>
+{% endblock %}
