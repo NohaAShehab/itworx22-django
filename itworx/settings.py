@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'employees.apps.EmployeesConfig',
     'amazon.apps.AmazonConfig',
     'products.apps.ProductsConfig',
-    'django_cleanup.apps.CleanupConfig',
     'cars.apps.CarsConfig',
     'library.apps.LibraryConfig',
-    'betterforms'
+    'betterforms',
+    'accounts.apps.AccountsConfig',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'itworx.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 # # BASE_DIR----> 127.0.0.1/media  --> absolute path
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+LOGIN_REDIRECT_URL = '/library/book/index'

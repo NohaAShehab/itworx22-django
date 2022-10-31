@@ -29,7 +29,10 @@ urlpatterns = [
     path('employees/', include("employees.urls")),
     path('products/', include("products.urls")),
     path('cars/', include("cars.urls") ),
-    path("library/", include("library.urls"))
+    path("library/", include("library.urls")),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('accounts/', include("accounts.urls"))  # registeration
+
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

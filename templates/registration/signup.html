@@ -3,16 +3,11 @@
 {% block title %} Products {% endblock %}
 
 {% block main %}
-<h1> Add Car </h1>
+<h1> Sign up  </h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form}}
 
-<!--        {% for f in form %}-->
-<!--        <div class="form_element">-->
-<!--          {{f.label}}  {{f}}-->
-<!--        </div>-->
-<!--        {% endfor %}-->
+        {{form.as_p}}
         <input type="submit" class="btn btn-success">
     </form>
 
